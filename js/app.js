@@ -123,5 +123,26 @@ const eliminarEgreso = (id)=>{
     cargarCabecero();
     cargarEgresos();
 }
+
+// * formulario *
+let agregarDato = ()=>{
+    let forma = document.forms['forma'];
+    let tipo = forma['tipo'];
+    let descripcion = forma['descripcion'];
+    let valor = forma['valor'];
+    if(descripcion.value !== '' && valor.value != ''){
+        if(tipo.value === 'ingreso'){
+            //el + convierte una cadena en valor numerico
+            ingresos.push( new Ingreso(descripcion.value, +valor.value) );
+            cargarCabecero();
+            cargarIngresos();
+        }else if(tipo.value === 'egreso'){
+            egresos.push( new Egreso(descripcion.value, +valor.value) );
+            cargarCabecero();
+            cargarEgresos();
+        }
+    }
+}
+
     
 

@@ -31,6 +31,25 @@
         </div>
     </div>
 
+    <!--FORMULARIO-->
+    <!--onsubmit falso para que no envie el formulario hacia un servidor-->
+    <form action="" id="forma" onsubmit="return false;">
+        <div class="agregar">
+            <div class="agregar_contenedor">
+                <select name="" id="tipo" class="agregar_tipo">
+                    <option value="ingreso" selected>+</option>
+                    <option value="egreso">-</option>
+                </select>
+                <input type="text" name="" id="descripcion" class="agregar_descripcion" placeholder="Agregar Descripción">
+                <input type="number" name="" id="valor" class="agregar_valor" placeholder="valor" step="any"> <!--step=any permite agregar numeros con decimales-->
+                <button class="agregar_btn" onclick="agregarDato()">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!--INGRESOS EGRESOS-->
     <div class="contenedor limpiarEstilos">
         <div class="ingreso">
             <h2 class="ingreso_titulo">Ingresos</h2>
