@@ -68,13 +68,23 @@ const crearIngresoHTML = (ingreso) =>{
             <div class="elemento_valor">+ ${formatoMoneda(ingreso.valor)}</div>
             <div class="elemento_eliminar">
                 <button class="elemento_eliminar--btn">
-                    <ion-icon name="close-circle-outline"></ion-icon>
+                    <ion-icon name="close-circle-outline" onclick='eliminarIngreso(${ingreso.id})'></ion-icon>
                 </button>
             </div>
         </div>
     </div>
     `;
     return ingresoHTML;
+}
+
+const eliminarIngreso = (id)=>{
+    //findIndex es como for que va a iterar sobre array ingresos y va a buscar cada ingreso el ingreso.id y al igualarlo al id retorna el indice dentro del array
+    let indiceEliminar = ingresos.findIndex( ingreso => ingreso.id === id);
+    //ojo elimina un elemento
+    ingresos.splice(indiceEliminar, 1);
+    //actualizamos la información
+    cargarCabecero();
+    cargarIngresos();
 }
 
 const cargarEgresos = () =>{
@@ -95,13 +105,23 @@ const crearEgresoHTML = (egreso) =>{
             <div class="elemento_porcentaje">${formatoPorcentaje(egreso.valor/totalEgresos())}</div>
             <div class="elemento_eliminar">
                 <button class="elemento_eliminar--btn">
-                    <ion-icon name="close-circle-outline"></ion-icon>
+                    <ion-icon name="close-circle-outline" onclick='eliminarEgreso(${egreso.id})'></ion-icon>
                 </button>
             </div>
         </div>
     </div>    
     `;
     return egresoHtml;
+}
+
+const eliminarEgreso = (id)=>{
+    //findIndex es como for que va a iterar sobre array ingresos y va a buscar cada ingreso el ingreso.id y al igualarlo al id retorna el indice dentro del array
+    let indiceEliminar = egresos.findIndex( egreso => egreso.id === id);
+    //ojo elimina un elemento
+    egresos.splice(indiceEliminar, 1);
+    //actualizamos la información
+    cargarCabecero();
+    cargarEgresos();
 }
     
 
